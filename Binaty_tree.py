@@ -30,15 +30,19 @@ class BinaryTree:
                 self.PreOrder(root.left)
             if root.right is not None:
                 self.PreOrder(root.right)
-
+    def depth_max(self,root):
+        if root == None:
+            return 0
+        return 1 + max(self.depth_max(root.left),self.depth_max(root.right))
 
 
 a = BinaryTree()
-a.insert_node(a.root,2)
-a.insert_node(a.root,4)
-a.insert_node(a.root,34)
-a.insert_node(a.root,45)
-a.insert_node(a.root,46)
+a.insert_node(a.root,7)
 a.insert_node(a.root,3)
-a.insert_node(a.root,48)
+a.insert_node(a.root,9)
+a.insert_node(a.root,2)
+a.insert_node(a.root,1)
+a.insert_node(a.root,5)
+a.insert_node(a.root,4)
 a.PreOrder(a.root)
+print(a.depth_max(a.root))
